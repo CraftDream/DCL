@@ -245,16 +245,7 @@ public final class Versions {
     private static void ensureSelectedAccount(Consumer<Account> action) {
         Account account = Accounts.getSelectedAccount();
         if (account == null) {
-            CreateAccountPane dialog = new CreateAccountPane();
-            dialog.addEventHandler(DialogCloseEvent.CLOSE, e -> {
-                Account newAccount = Accounts.getSelectedAccount();
-                if (newAccount == null) {
-                    // user cancelled operation
-                } else {
-                    Platform.runLater(() -> action.accept(newAccount));
-                }
-            });
-            Controllers.dialog(dialog);
+            Controllers.navigate(Controllers.getAccountListPage());
         } else {
             action.accept(account);
         }
