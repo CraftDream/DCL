@@ -145,6 +145,7 @@ public class AccountListPage extends DecoratorAnimatedPage implements DecoratorP
 
                 ScrollPane scrollPane = new ScrollPane(boxMethods);
                 VBox.setVgrow(scrollPane, Priority.ALWAYS);
+                setLeft(scrollPane);
             }
 
             ScrollPane scrollPane = new ScrollPane();

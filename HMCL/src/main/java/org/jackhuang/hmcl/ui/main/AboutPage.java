@@ -34,11 +34,6 @@ public class AboutPage extends StackPane {
     public AboutPage() {
         ComponentList about = new ComponentList();
         {
-            IconedTwoLineListItem launcher = new IconedTwoLineListItem();
-            launcher.setImage(new Image("/assets/img/craft_table.png", 32, 32, false, true));
-            launcher.setTitle("DreamCraft Launcher");
-            launcher.setSubtitle(Metadata.VERSION);
-
             IconedTwoLineListItem author = new IconedTwoLineListItem();
             author.setImage(new Image("/assets/img/yellow_fish.jpg", 32, 32, false, true));
             author.setTitle("huanghongxun");
@@ -50,7 +45,7 @@ public class AboutPage extends StackPane {
             author.setTitle("梦幻星空 CraftDream");
             author.setSubtitle("梦幻国度服务器服主");
 
-            about.getContent().setAll(launcher, author, craftdream);
+            about.getContent().setAll(author, craftdream);
         }
 
         ComponentList thanks = new ComponentList();
