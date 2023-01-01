@@ -488,9 +488,9 @@ public final class LauncherHelper {
                 suggested = true;
             }
 
-            if (javaVersion.getParsedVersion() != 8 && javaVersion.getParsedVersion() != 11) {
+            //if (javaVersion.getParsedVersion() != 8 && javaVersion.getParsedVersion() != 11) {
                 Controllers.dialog("请使用 Java 8 或 Java 11 启动游戏，其他版本的 Java 不被兼容！", i18n("message.error"), MessageType.ERROR, breakAction);
-            }
+            //}
 
             if (!suggested && violatedSuggestedConstraint != null) {
                 suggested = true;
