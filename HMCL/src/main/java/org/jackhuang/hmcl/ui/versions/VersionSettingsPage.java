@@ -380,19 +380,7 @@ public final class VersionSettingsPage extends StackPane implements DecoratorPag
                 FXUtils.setLimitWidth(cboProcessPriority, 300);
             }
 
-            GridPane serverPane = new GridPane();
-            {
-                ColumnConstraints title = new ColumnConstraints();
-                ColumnConstraints value = new ColumnConstraints();
-                value.setFillWidth(true);
-                value.setHgrow(Priority.ALWAYS);
-                value.setHalignment(HPos.RIGHT);
-                serverPane.setHgap(16);
-                serverPane.setVgap(8);
-                serverPane.getColumnConstraints().setAll(title, value);
-            }
-
-            componentList.getContent().setAll(javaSublist, gameDirSublist, maxMemoryPane, launcherVisibilityPane, dimensionPane, showLogsPane, processPriorityPane, serverPane);
+            componentList.getContent().setAll(javaSublist, gameDirSublist, maxMemoryPane, launcherVisibilityPane, dimensionPane, showLogsPane, processPriorityPane);
         }
 
         HBox advancedHintPane = new HBox();

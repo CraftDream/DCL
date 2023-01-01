@@ -325,12 +325,6 @@ public final class LauncherHelper {
     private static Task<JavaVersion> checkGameState(Profile profile, VersionSetting setting, Version version) {
         VersionNumber gameVersion = VersionNumber.asVersion(profile.getRepository().getGameVersion(version).orElse("Unknown"));
 
-        if (setting.isNotCheckJVM()) {
-            return Task.composeAsync(() -> setting.getJavaVersion(gameVersion, version))
-                    .thenApplyAsync(javaVersion -> Optional.ofNullable(javaVersion).orElseGet(JavaVersion::fromCurrentEnvironment))
-                    .withStage("launch.state.java");
-        }
-
         return Task.composeAsync(() -> {
             return setting.getJavaVersion(gameVersion, version);
         }).thenComposeAsync(Schedulers.javafx(), javaVersion -> {
@@ -488,9 +482,10 @@ public final class LauncherHelper {
                 suggested = true;
             }
 
-            //if (javaVersion.getParsedVersion() != 8 && javaVersion.getParsedVersion() != 11) {
+            if (javaVersion.getParsedVersion() != 8 && javaVersion.getParsedVersion() != 11) {
                 Controllers.dialog("请使用 Java 8 或 Java 11 启动游戏，其他版本的 Java 不被兼容！", i18n("message.error"), MessageType.ERROR, breakAction);
-            //}
+                return null;
+            }
 
             if (!suggested && violatedSuggestedConstraint != null) {
                 suggested = true;
