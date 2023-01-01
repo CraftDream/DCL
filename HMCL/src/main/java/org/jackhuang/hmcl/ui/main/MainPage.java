@@ -234,24 +234,9 @@ public final class MainPage extends StackPane implements DecoratorPage {
         Bindings.bindContent(menu.getContent(), versionNodes);
     }
 
-    public MainPage() {
-        if (Metadata.isNightly()) {
-            announcementPane.getChildren().add(new AnnouncementCard(i18n("update.channel.nightly.title"), i18n("update.channel.nightly.hint")));
-        } else if (Metadata.isDev()) {
-            announcementPane.getChildren().add(new AnnouncementCard(i18n("update.channel.dev.title"), i18n("update.channel.dev.hint")));
-        }
-    }
+    public MainPage() {}
 
-    private void showUpdate(boolean show) {
-        doAnimation(show);
-
-        if (show && getLatestVersion() != null && !Objects.equals(config().getPromptedVersion(), getLatestVersion().getVersion())) {
-            Controllers.dialog("", i18n("update.bubble.title", getLatestVersion().getVersion()), MessageDialogPane.MessageType.INFO, () -> {
-                config().setPromptedVersion(getLatestVersion().getVersion());
-                onUpgrade();
-            });
-        }
-    }
+    private void showUpdate(boolean show) {}
 
     private void doAnimation(boolean show) {
         Duration duration = Duration.millis(320);

@@ -36,9 +36,8 @@ public class AboutPage extends StackPane {
         {
             IconedTwoLineListItem launcher = new IconedTwoLineListItem();
             launcher.setImage(new Image("/assets/img/craft_table.png", 32, 32, false, true));
-            launcher.setTitle("Hello Minecraft! Launcher");
+            launcher.setTitle("DreamCraft Launcher");
             launcher.setSubtitle(Metadata.VERSION);
-            launcher.setExternalLink("https://hmcl.huangyuhui.net");
 
             IconedTwoLineListItem author = new IconedTwoLineListItem();
             author.setImage(new Image("/assets/img/yellow_fish.jpg", 32, 32, false, true));
@@ -46,7 +45,12 @@ public class AboutPage extends StackPane {
             author.setSubtitle(i18n("about.author.statement"));
             author.setExternalLink("https://space.bilibili.com/1445341");
 
-            about.getContent().setAll(launcher, author);
+            IconedTwoLineListItem craftdream = new IconedTwoLineListItem();
+            author.setImage(new Image("/assets/img/craftdream.jpg", 32, 32, false, true));
+            author.setTitle("梦幻星空 CraftDream");
+            author.setSubtitle("梦幻国度服务器服主");
+
+            about.getContent().setAll(launcher, author, craftdream);
         }
 
         ComponentList thanks = new ComponentList();
@@ -105,29 +109,10 @@ public class AboutPage extends StackPane {
         {
             IconedTwoLineListItem users = new IconedTwoLineListItem();
             users.setImage(new Image("/assets/img/craft_table.png", 32, 32, false, true));
-            users.setTitle(i18n("about.thanks_to.users"));
-            users.setSubtitle(i18n("about.thanks_to.users.statement"));
-            users.setExternalLink("https://hmcl.huangyuhui.net/api/redirect/sponsor");
+            users.setTitle("梦幻国度服务器 QQ交流群：719174269");
+            users.setSubtitle("玩家交流互动，服务器问题反馈，寻求帮助");
 
-            IconedTwoLineListItem qq = new IconedTwoLineListItem();
-//            qq.setImage(new Image("/assets/img/qq.png", 32, 32, false, true));
-            qq.setTitle(i18n("about.community.qqchannel"));
-            qq.setSubtitle(i18n("about.community.qqchannel.statement"));
-            qq.setExternalLink("https://pd.qq.com/s/qor74cm6");
-
-            IconedTwoLineListItem discord = new IconedTwoLineListItem();
-            discord.setImage(new Image("/assets/img/discord.png", 32, 32, false, true));
-            discord.setTitle(i18n("about.community.discord"));
-            discord.setSubtitle(i18n("about.community.discord.statement"));
-            discord.setExternalLink("https://discord.gg/jVvC7HfM6U");
-
-            IconedTwoLineListItem kookapp = new IconedTwoLineListItem();
-            kookapp.setImage(new Image("/assets/img/kookapp.png", 32, 32, false, true));
-            kookapp.setTitle(i18n("about.community.kookapp"));
-            kookapp.setSubtitle(i18n("about.community.kookapp.statement"));
-            kookapp.setExternalLink("https://kook.top/Kx7n3t");
-
-            community.getContent().setAll(users, qq, discord, kookapp);
+            community.getContent().setAll(users);
         }
 
         ComponentList dep = new ComponentList();
@@ -195,7 +180,7 @@ public class AboutPage extends StackPane {
             IconedTwoLineListItem openSource = new IconedTwoLineListItem();
             openSource.setTitle(i18n("about.open_source"));
             openSource.setSubtitle(i18n("about.open_source.statement"));
-            openSource.setExternalLink("https://github.com/huanghongxun/HMCL");
+            openSource.setExternalLink("https://github.com/CraftDream/DCL");
 
             legal.getContent().setAll(copyright, claim, openSource);
         }

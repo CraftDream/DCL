@@ -94,18 +94,6 @@ public class LauncherSettingsPage extends DecoratorAnimatedPage implements Decor
                         downloadItem.setOnAction(e -> tab.select(downloadTab));
                     })
                     .startCategory(i18n("help"))
-                    .addNavigationDrawerItem(helpItem -> {
-                        helpItem.setTitle(i18n("help"));
-                        helpItem.setLeftGraphic(wrap(SVG::helpCircleOutline));
-                        helpItem.activeProperty().bind(tab.getSelectionModel().selectedItemProperty().isEqualTo(helpTab));
-                        helpItem.setOnAction(e -> tab.select(helpTab));
-                    })
-                    .addNavigationDrawerItem(feedbackItem -> {
-                        feedbackItem.setTitle(i18n("feedback"));
-                        feedbackItem.setLeftGraphic(wrap(SVG::messageAlertOutline));
-                        feedbackItem.activeProperty().bind(tab.getSelectionModel().selectedItemProperty().isEqualTo(feedbackTab));
-                        feedbackItem.setOnAction(e -> tab.select(feedbackTab));
-                    })
                     .addNavigationDrawerItem(sponsorItem -> {
                         sponsorItem.setTitle(i18n("sponsor"));
                         sponsorItem.setLeftGraphic(wrap(SVG::handHearOutline));
